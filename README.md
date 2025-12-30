@@ -3,7 +3,7 @@
 Turn Wynncraft item drops or other items into Wynntills map waypoints. Search an item, convert its drop locations, and see them on the map.
 
 ## Quick Start
-- Open [index.html](index.html) or use the hosted [GitHub Pages](https://gmfelixfex.github.io/WynncraftApiToWynntills/).
+- Open [index.html](index.html) or use the hosted [GitHub Pages](https://gmfelixfex.github.io/WynncraftItemFinder/).
 - Type an item name (like Green Opal) and press Search.
 - If you see many matches, pick the right one in 'Results' and click 'Load Selected'.
 - Choose an icon and a color if you want.
