@@ -1,0 +1,132 @@
+:root {
+	--bg: #0f1115;
+	--panel: #161a22;
+	--text: #e5e7eb;
+	--muted: #9aa4b2;
+	--accent: #3b82f6;
+	--danger: #ef4444;
+	--border: #232838;
+}
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	background: var(--bg);
+	color: var(--text);
+	line-height: 1.45;
+}
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 24px;
+}
+h1 {
+	font-size: 1.5rem;
+	margin: 0 0 16px;
+}
+.subtitle {
+	color: var(--muted);
+	margin-bottom: 20px;
+}
+.row {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}
+@media (min-width: 960px) {
+	.row {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+.panel {
+	background: var(--panel);
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	padding: 16px;
+}
+.panel h2 {
+	font-size: 1rem;
+	margin: 0 0 10px;
+}
+.controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 12px;
+	margin-top: 12px;
+}
+.controls .field {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+input[type="text"], select {
+	background: #0b0d12;
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 8px 10px;
+	outline: none;
+	min-width: 220px;
+}
+button {
+	background: var(--accent);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 8px 12px;
+	font-weight: 600;
+	cursor: pointer;
+}
+button.secondary {
+	background: #374151;
+}
+button.danger {
+	background: var(--danger);
+}
+textarea {
+	width: 96%;
+	min-height: 260px;
+	resize: vertical;
+	background: #0b0d12;
+	color: var(--text);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 10px;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	font-size: 0.9rem;
+}
+.small {
+	font-size: 0.85rem;
+	color: var(--muted);
+}
+.status {
+	margin-top: 8px;
+	min-height: 1.2em;
+	color: var(--muted);
+}
+.grid-2 {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 8px;
+	align-items: center;
+	margin-bottom: 12px;
+}
+.badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 999px;
+	border: 1px solid var(--border);
+	color: var(--muted);
+	font-size: 0.8rem;
+}
+.map-viewport {
+	height: 33vh;
+	overflow: hidden;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: #0b0d12;
+}

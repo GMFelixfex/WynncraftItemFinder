@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Wynncraft → Wynntills Waypoint Converter</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Wynncraft → Wynntills Waypoint Converter</h1>
+			<div class="subtitle">Search an item, inspect/edit its JSON, then convert dropped spawn coordinates into Wynntills waypoints.</div>
+
+			<div class="panel">
+				<h2>Search</h2>
+				<div class="controls">
+					<div class="field">
+						<label for="searchInput" class="small">Item name</label>
+						<input id="searchInput" type="text" placeholder="e.g. Green Opal" />
+					</div>
+						<div class="field">
+							<label for="corsToggle" class="small">Use CORS proxy</label>
+							<input id="corsToggle" type="checkbox" />
+						</div>
+					<button id="searchButton">Search</button>
+				</div>
+				<div class="controls">
+					<div class="field">
+						<label for="resultsSelect" class="small">Results</label>
+						<select id="resultsSelect" title="Matched items"></select>
+						<button id="loadResultBtn" class="secondary">Load Selected</button>
+					</div>
+				</div>
+				<div class="status" id="status"></div>
+			</div>
+
+			<div class="row" style="margin-top: 16px;">
+				<div class="panel">
+					<h2>Item JSON (editable)</h2>
+					<div class="small">This is the raw response from the Wynncraft API. You can edit it before converting.</div>
+					<div class="controls">
+						<button id="formatJson" class="secondary" title="Prettify the JSON">Format JSON</button>
+						<button id="clearJson" class="danger" title="Clear the editor">Clear</button>
+						<span class="badge" id="jsonStats"></span>
+					</div>
+                    <textarea id="jsonInput" placeholder="Search first or paste JSON here..."></textarea>
+				</div>
+
+				<div class="panel">
+					<h2>Wynntills Waypoints</h2>
+					<div class="controls">
+						<div class="field">
+							<label for="iconSelect" class="small">Icon</label>
+							<select id="iconSelect" title="Waypoint icon">
+								<option value="flag" selected>flag</option>
+								<option value="diamond">diamond</option>
+								<option value="fireball">fireball</option>
+								<option value="sign">sign</option>
+								<option value="star">star</option>
+								<option value="wall">wall</option>
+								<option value="chestT1">chestT1</option>
+								<option value="chestT2">chestT2</option>
+								<option value="chestT3">chestT3</option>
+								<option value="chestT4">chestT4</option>
+								<option value="farming">farming</option>
+								<option value="fishing">fishing</option>
+								<option value="mining">mining</option>
+								<option value="woodcutting">woodcutting</option>
+							</select>
+						</div>
+						<div class="field">
+							<label for="colorInput" class="small">Color</label>
+							<input id="colorInput" type="color" value="#ffffff" title="Waypoint color (RGB)" />
+							<span class="small" id="colorPreview">#ffffffff</span>
+						</div>
+					</div>
+					<div class="grid-2">
+						<button id="convertButton">Convert</button>
+						<button id="copyButton" class="secondary">Copy</button>
+					</div>
+					<textarea id="outputArea" readonly placeholder="Converted waypoints will appear here..."></textarea>
+				</div>
+			</div>
+
+			<div class="panel" style="margin-top: 16px;">
+				<h2>Map Preview</h2>
+				<div class="grid-2">
+					<button id="renderMapBtn">Render on Map</button>
+					<span class="badge" id="mapStats"></span>
+				</div>
+				<div class="controls">
+					<div class="field">
+						<input type="checkbox" id="showRadiusToggle" checked />
+						<label for="showRadiusToggle" class="small">Show radius</label>
+					</div>
+					<div class="field">
+						<input type="checkbox" id="showLabelsToggle" checked />
+						<label for="showLabelsToggle" class="small">Show labels</label>
+					</div>
+					<button id="zoomInBtn" class="secondary">Zoom In</button>
+					<button id="zoomOutBtn" class="secondary">Zoom Out</button>
+					<button id="resetViewBtn" class="secondary">Reset View</button>
+					<button id="fitBtn" class="secondary">Fit to Waypoints</button>
+					<div class="field">
+						<label for="gotoSelect" class="small">Go to</label>
+						<select id="gotoSelect" title="Go to waypoint"></select>
+						<button id="gotoBtn" class="secondary">Go</button>
+					</div>
+				</div>
+				<div class="map-viewport">
+					<canvas id="mapCanvas" width="4034" height="6414" style="width: 100%; height: auto; display: block;"></canvas>
+				</div>
+			</div>
+
+			<div class="panel" style="margin-top: 16px;">
+				<h2>Notes</h2>
+				<ul class="small">
+					<li>API endpoint used: https://api.wynncraft.com/v3/item/search/{itemName}</li>
+					<li>Defaults: color "#ffffffff", icon "flag".</li>
+					<li>Map preview: Uses Wynntills main map; x → pixel x, z → pixel y; applies offsets (+2383, +6572).</code></li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
