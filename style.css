@@ -130,3 +130,7 @@ textarea {
 	border-radius: 8px;
 	background: #0b0d12;
 }
+a {
+	color: var(--accent);
+	text-decoration: none;
+}
