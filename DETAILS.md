@@ -47,7 +47,7 @@ As an example, each coordinate is converted to the following JSON object:
 ```
 
 Naming rules:
-- droppedBy: `droppedBy.name + ItemName + index` (index starts from 1 for each source). This matches the converter output (space-separated).
+- droppedBy: `droppedBy.name - radius(m) - ItemName - index` (index starts from 1 for each source). This matches the converter output (space-separated).
 - dropMeta: `dropMeta.name - ItemName` (hyphen separator; no radius).
 
 ### Color format

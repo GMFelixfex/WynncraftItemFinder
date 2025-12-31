@@ -233,17 +233,17 @@ function populateResultsDropdown(results) {
 function convertToWynntills(itemJson, icon, color) {
     const { itemName, droppedBy, dropMeta } = extractItemData(itemJson);
     const waypoints = [];
-    // 1) droppedBy format: coords as [x, y, z, radius]; radius ignored
+    // 1) droppedBy format: coords as [x, y, z, radius];
     for (const entry of droppedBy) {
         const srcName = (entry && entry.name) ? String(entry.name) : 'Unknown';
         const coords = Array.isArray(entry.coords) ? entry.coords : [];
         let idx = 0;
         for (const c of coords) {
             if (!Array.isArray(c) || c.length < 3) continue;
-            const [x, y, z] = c;
+            const [x, y, z, radius] = c;
             idx += 1;
             waypoints.push({
-                name: `${srcName} - ${itemName} - ${idx}`,
+                name: `${srcName} - ${radius}m - ${itemName} - ${idx}`,
                 color: (color || '#ffffffff').toLowerCase(),
                 icon: icon || 'flag',
                 visibility: 'default',
